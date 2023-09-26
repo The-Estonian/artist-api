@@ -1,0 +1,6 @@
+<div class="container_content_artist_members">
+            <p id="allMembers">Members</p>
+            {{range $artistMembers := $artist.Members}}
+            <span class="container_content_artist_members_each-member hidden">{{$artistMembers}}</span>
+            {{end}}
+</div>

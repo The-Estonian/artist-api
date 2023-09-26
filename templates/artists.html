@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/css/main.css" />
+    <title>Famous artists</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container_menu">
+        <span><a href="/">Home</a></span>
+        <span><a href="/artists">Artists</a></span>
+        <span><a href="/locations">Concert Locations</a></span>
+      </div>
+      <div class="container_content">
+        {{range $artist := .}}
+        <div class="container_content_artist">
+          <img
+            class="container_content_artist_image"
+            src="{{$artist.Image}}"
+            alt="{{$artist.Name}} picture"
+          />
+
+          <div class="container_content_artist_name">{{$artist.Name}}</div>
+          <div class="container_content_artist_member_menu">
+            <a href="/locations?id={{$artist.Id}}">
+              <p id="allConcerts">Members & Concerts</p>
+            </a>
+          </div>
+
+          <div class="container_content_artist_creationDate-album">
+            <span>Artist created on: {{$artist.CreationDate}}</span>
+
+            <span>First album released on: </span>
+            <span>{{$artist.FirstAlbum}}</span>
+          </div>
+        </div>
+        {{end}}
+      </div>
+      <div class="container_footer">
+        <p>Contacts, Reference</p>
+      </div>
+    </div>
+    <script src="static/js/main.js"></script>
+  </body>
+</html>

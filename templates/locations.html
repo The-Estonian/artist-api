@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/css/main.css" />
+    <title>Famous artists</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container_menu">
+        <span><a href="/">Home</a></span>
+        <span><a href="/artists">Artists</a></span>
+        <span><a href="/locations">Concert Locations</a></span>
+      </div>
+      <div class="container_content">
+        <div class="container_content_members-concerts">
+          <div class="container_content_members-concerts_members">
+            <p>Members: </p>
+            {{range $artist := .artists.Members}}
+            <span class="container_content_members-concerts_members_each-member">{{$artist}}</span>
+            {{end}}
+          </div>
+          <div class="container_content_members-concerts_locations">
+            <div class="container_content_members-concerts_locations_country">
+              <p>Country: </p>
+              {{range $loc := .locations.Location}}
+              <span>{{$loc}}</span>
+              {{end}}
+            </div>
+            <div class="container_content_members-concerts_locations_city">
+              <p>City: </p>
+              {{range $loc := .locations.Location}}
+              <span>{{$loc}}</span>
+              {{end}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container_footer">
+        <p>Contacts, Reference</p>
+      </div>
+    </div>
+  </body>
+</html>
