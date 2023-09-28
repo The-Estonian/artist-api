@@ -6,7 +6,7 @@ import (
 	"01.kood.tech/git/jsaar/groupie-tracker/urlHandlers"
 )
 
-var PORT = "8080"
+const PORT = "8080"
 
 func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static/"))))
