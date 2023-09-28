@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
 
 $cardHeight: 26rem;
 $cardWidth: 15rem;
@@ -22,7 +22,7 @@ $textColor: rgba(15, 77, 92, 1);
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Kaushan Script', cursive;
+  font-family: 'Skranji', cursive;
 }
 
 .container {
@@ -41,23 +41,28 @@ $textColor: rgba(15, 77, 92, 1);
     @include flexRow;
     margin: 0.5rem;
     margin-top: 0;
-    span {
-      margin: 0 0.2rem;
+    a {
+      @include flexCol;
+      font-size: 1.1rem;
+      margin: 0 0.4rem;
       box-shadow: $shading 0px 7px 29px 0px;
-      padding: 0.5rem 1.2rem;
       border-radius: 0 0 0.5rem 0.5rem;
+      width: $cardWidth;
+      height: 3rem;
       cursor: pointer;
-      a {
-        font-size: 1.1rem;
-        text-decoration: none;
-        color: $textColor;
-      }
-
+      overflow: hidden;
+      text-decoration: none;
+      color: $textColor;
+      transition: 1s;
+      border: 2px solid transparent;
       @media (max-width: 550px) {
         border-radius: 0.5rem;
         margin: 0.3rem;
         width: 100%;
         text-align: center;
+      }
+      &:hover {
+        border: 2px solid red;
       }
     }
     @media (max-width: 550px) {
@@ -68,6 +73,7 @@ $textColor: rgba(15, 77, 92, 1);
     width: 95%;
     @include flexRow;
     flex-wrap: wrap;
+    margin-top: auto;
     &_artist {
       margin: 0.4rem;
       @include flexCol;
@@ -87,7 +93,7 @@ $textColor: rgba(15, 77, 92, 1);
         z-index: 9;
       }
       &_name {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         width: 80%;
         text-align: center;
         border-bottom: 2px solid rgba(15, 77, 92, 0.801);
@@ -161,50 +167,76 @@ $textColor: rgba(15, 77, 92, 1);
           padding: 0.1rem;
           width: 80%;
           border-bottom: 1px solid rgba(15, 77, 92, 0.801);
-          margin-bottom: auto
+          margin-bottom: auto;
+          font-size: 1.1rem;
         }
       }
       &_locations {
-         @include flexRow;
-        &_city {
+        @include flexCol;
+        box-shadow: $shading 0px 7px 29px 0px;
+        border-radius: 0.5rem;
+        width: $cardWidth*2.5;
+        height: $cardHeight;
+        margin: 0.5rem;
+        padding-bottom: 2rem;
+        p {
           @include flexCol;
-          box-shadow: $shading 0px 7px 29px 0px;
-          border-radius: 0.5rem;
-          width: $cardWidth;
-          height: $cardHeight;
-          margin: 0.5rem;
-          padding-bottom: 2rem;
-          p {
-            @include flexCol;
-            width: 100%;
-            height: 5rem;
-            border-radius: 0.5rem 0.5rem 0 0;
-            font-size: 1.5rem;
-            margin-bottom: auto;
-            background: rgb(39, 0, 93);
-            color: rgb(228, 241, 255);
-          }
+          width: 100%;
+          height: 5rem;
+          border-radius: 0.5rem 0.5rem 0 0;
+          font-size: 1.5rem;
+          background: rgb(39, 0, 93);
+          color: rgb(228, 241, 255);
         }
-        &_country {
+        span {
+            @include flexRow;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(15, 77, 92, 0.801);
+            text-align: center;
+            letter-spacing: 0.1rem;
+            padding: 0.1rem;
+            width: 80%;
+          }
+        &_data{
           @include flexCol;
-          box-shadow: $shading 0px 7px 29px 0px;
-          border-radius: 0.5rem;
-          width: $cardWidth;
-          height: $cardHeight;
-          margin: 0.5rem;
-          padding-bottom: 2rem;
-          p {
-            @include flexCol;
-            width: 100%;
-            height: 5rem;
-            border-radius: 0.5rem 0.5rem 0 0;
-            font-size: 1.5rem;
-            margin-bottom: auto;
-            background: rgb(39, 0, 93);
-            color: rgb(228, 241, 255);
+          width: 100%;
+          margin-bottom: auto;
+        }
+        &_title{
+          @include flexRow;
+          width: 100%;
+          margin-bottom: auto;
+          :nth-child(1){
+            border-radius: 0.5rem 0 0 0;
+          }
+          :nth-child(2){
+            border-radius: 0;
+          }
+          :nth-child(3){
+            border-radius: 0 0.5rem 0 0;
           }
         }
       }
+    }
+  }
+  &_back {
+    @include flexCol;
+    width: $cardWidth;
+    height: 5rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: auto;
+    background: rgb(39, 0, 93);
+    transition: 1s;
+    overflow: hidden;
+    a {
+      text-decoration: none;
+      color: rgb(228, 241, 255);
+      padding: 2rem 6rem;
+    }
+    &:hover {
+      box-shadow: $shading 0px 7px 29px 0px;
+      border: 2px solid red;
     }
   }
 }

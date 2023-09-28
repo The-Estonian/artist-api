@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Skranji&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Kaushan Script", cursive;
+  font-family: "Skranji", cursive;
 }
 
 .container {
@@ -25,25 +25,34 @@
   margin: 0.5rem;
   margin-top: 0;
 }
-.container_menu span {
-  margin: 0 0.2rem;
-  box-shadow: rgba(39, 0, 93, 0.616) 0px 7px 29px 0px;
-  padding: 0.5rem 1.2rem;
-  border-radius: 0 0 0.5rem 0.5rem;
-  cursor: pointer;
-}
-.container_menu span a {
+.container_menu a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-size: 1.1rem;
+  margin: 0 0.4rem;
+  box-shadow: rgba(39, 0, 93, 0.616) 0px 7px 29px 0px;
+  border-radius: 0 0 0.5rem 0.5rem;
+  width: 15rem;
+  height: 3rem;
+  cursor: pointer;
+  overflow: hidden;
   text-decoration: none;
   color: rgb(15, 77, 92);
+  transition: 1s;
+  border: 2px solid transparent;
 }
 @media (max-width: 550px) {
-  .container_menu span {
+  .container_menu a {
     border-radius: 0.5rem;
     margin: 0.3rem;
     width: 100%;
     text-align: center;
   }
+}
+.container_menu a:hover {
+  border: 2px solid red;
 }
 @media (max-width: 550px) {
   .container_menu {
@@ -60,6 +69,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 .container_content_artist {
   margin: 0.4rem;
@@ -84,7 +94,7 @@
   z-index: 9;
 }
 .container_content_artist_name {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   width: 80%;
   text-align: center;
   border-bottom: 2px solid rgba(15, 77, 92, 0.801);
@@ -179,62 +189,91 @@
   width: 80%;
   border-bottom: 1px solid rgba(15, 77, 92, 0.801);
   margin-bottom: auto;
+  font-size: 1.1rem;
 }
 .container_content_members-concerts_locations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(39, 0, 93, 0.616) 0px 7px 29px 0px;
+  border-radius: 0.5rem;
+  width: 37.5rem;
+  height: 26rem;
+  margin: 0.5rem;
+  padding-bottom: 2rem;
+}
+.container_content_members-concerts_locations p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-size: 1.5rem;
+  background: rgb(39, 0, 93);
+  color: rgb(228, 241, 255);
+}
+.container_content_members-concerts_locations span {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(15, 77, 92, 0.801);
+  text-align: center;
+  letter-spacing: 0.1rem;
+  padding: 0.1rem;
+  width: 80%;
 }
-.container_content_members-concerts_locations_city {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: rgba(39, 0, 93, 0.616) 0px 7px 29px 0px;
-  border-radius: 0.5rem;
-  width: 15rem;
-  height: 26rem;
-  margin: 0.5rem;
-  padding-bottom: 2rem;
-}
-.container_content_members-concerts_locations_city p {
+.container_content_members-concerts_locations_data {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 5rem;
-  border-radius: 0.5rem 0.5rem 0 0;
-  font-size: 1.5rem;
   margin-bottom: auto;
-  background: rgb(39, 0, 93);
-  color: rgb(228, 241, 255);
 }
-.container_content_members-concerts_locations_country {
+.container_content_members-concerts_locations_title {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: rgba(39, 0, 93, 0.616) 0px 7px 29px 0px;
-  border-radius: 0.5rem;
-  width: 15rem;
-  height: 26rem;
-  margin: 0.5rem;
-  padding-bottom: 2rem;
-}
-.container_content_members-concerts_locations_country p {
-  display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-bottom: auto;
+}
+.container_content_members-concerts_locations_title :nth-child(1) {
+  border-radius: 0.5rem 0 0 0;
+}
+.container_content_members-concerts_locations_title :nth-child(2) {
+  border-radius: 0;
+}
+.container_content_members-concerts_locations_title :nth-child(3) {
+  border-radius: 0 0.5rem 0 0;
+}
+.container_back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
   height: 5rem;
-  border-radius: 0.5rem 0.5rem 0 0;
+  border-radius: 0.5rem;
   font-size: 1.5rem;
   margin-bottom: auto;
   background: rgb(39, 0, 93);
+  transition: 1s;
+  overflow: hidden;
+}
+.container_back a {
+  text-decoration: none;
   color: rgb(228, 241, 255);
+  padding: 2rem 6rem;
+}
+.container_back:hover {
+  box-shadow: rgba(39, 0, 93, 0.616) 0px 7px 29px 0px;
+  border: 2px solid red;
 }
 
 .hidden {
