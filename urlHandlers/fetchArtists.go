@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+//Artist api struct DO NOT MODIFY!
 type Artists struct {
 	Id           int      `json:"id"`
 	Image        string   `json:"image"`
@@ -17,6 +18,7 @@ type Artists struct {
 	Locations    string   `json:"locations"`
 }
 
+//fetch all artists and return array of structs
 func FetchAllArtists() []Artists {
 	var AllArtists []Artists
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
@@ -35,6 +37,7 @@ func FetchAllArtists() []Artists {
 	return AllArtists
 }
 
+//fetch single artist and return as struct
 func FetchSingleArtist(artistId string) Artists {
 	var AllArtists Artists
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists/" + artistId)

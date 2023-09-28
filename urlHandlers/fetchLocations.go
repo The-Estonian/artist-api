@@ -7,12 +7,14 @@ import (
 	"net/http"
 )
 
+//Locations api struct DO NOT MODIFY!
 type Locations struct {
 	Id       int      `json:"id"`
 	Location []string `json:"locations"`
 	Dates    string   `json:"dates"`
 }
 
+//fetch single artist locations and return as struct
 func FetchLocations(artistId string) Locations {
 	var AllLocations Locations
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/locations/" + artistId)

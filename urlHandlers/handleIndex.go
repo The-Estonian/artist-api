@@ -7,6 +7,7 @@ import (
 	"strings"
 )
 
+//execute index template with hardcoded dummy data
 func HandleIndex(w http.ResponseWriter, r *http.Request) {
 	template, err := template.ParseFiles("./templates/index.html")
 	if err != nil {

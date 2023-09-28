@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+//execute artists template with fetched artists data
 func HandleArtists(w http.ResponseWriter, r *http.Request) {
 	template, err := template.ParseFiles("./templates/artists.html")
 	if err != nil {
