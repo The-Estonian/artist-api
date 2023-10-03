@@ -12,32 +12,40 @@
         <div class="container_content_members-concerts">
           <div class="container_content_members-concerts_members">
             <p>Members:</p>
-            {{range $artist := .artistMembers}}
-            <span class="container_content_members-concerts_members_each-member"
-              >{{$artist}}</span
+            {{range $key, $value := .artists.members}}
+            <span
+              class="container_content_members-concerts_members_each-member"
             >
+              {{$value}}
+            </span>
             {{end}}
           </div>
           <div class="container_content_members-concerts_locations">
             <div class="container_content_members-concerts_locations_title">
-              <p>Concerts</p>
+              <p>Country</p>
+              <p>City</p>
+              <p>Time</p>
             </div>
-            <div class="container_content_members-concerts_locations_data">
-              {{range $value := .}}
-              <span>{{$value}}</span>
-              {{end}}
+            {{range $key, $value := .datesLocations}} {{$arr := Split $key "-"}}
+            {{$country := index $arr 0}} {{$city := index $arr 1}}
+            <div class="container_content_members-concerts_locations_row">
+              <span>{{Replace $city "_" " " | CapitalizeAll}}</span>
+              <span>{{Replace $country "_" " " | CapitalizeAll}}</span>
+              <div class="container_content_members-concerts_locations_column">
+                {{range $data := $value}}
+                <span>{{$data}}</span>
+                {{end}}
               </div>
-              <div class="container_content_members-concerts_locations_data">
-              {{range $key, $value := .artistDates}}
-              <span>{{$value}}</span>
-              {{end}}
             </div>
+            {{end}}
           </div>
         </div>
       </div>
       <div class="container_back"><a href="/artists">Back</a></div>
       <div class="container_footer">
-        <p>Contacts, Reference</p>
+        <a href="https://github.com/The-Estonian">Git</a>
+        <a href="https://www.linkedin.com/in/jaanus-s-3897a721b/">LinkedIn</a>
+        <a href="https://kood.tech/">A Kood/Jõhvi Project</a>
       </div>
     </div>
   </body>

@@ -5,7 +5,9 @@ import (
 	"html/template"
 	"net/http"
 	"strings"
+	"io"
 	"01.kood.tech/git/jsaar/groupie-tracker/helpers"
+	"strconv"
 )
 
 //execute location template with fetched location, 
@@ -13,8 +15,6 @@ import (
 func HandleLocations(w http.ResponseWriter, r *http.Request) {
 	temp, err := template.New("locations.html").Funcs(template.FuncMap{
 		"Split" : strings.Split,
-		"Upper" : strings.ToUpper,
-		"Capitalize": helpers.Capitalize,
 		"CapitalizeAll": helpers.CapitalizeAll,
 		"Replace": helpers.Replace,
 	}).ParseFiles("./templates/locations.html")
@@ -23,27 +23,15 @@ func HandleLocations(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Template not found!"+err.Error(), http.StatusInternalServerError)
 	}
 	artistId := r.URL.Query().Get("id")
-
-	dataMap := make(map[string][]string)
-
-	AllLocations := FetchLocations(artistId)
 	AllArtists := FetchSingleArtist(artistId)
-	AllDates := FetchDates(artistId)
-
-
-	for j := 0; j < len(AllArtists.Members); j++ {
-		dataMap["artistMembers"] = append(dataMap["artistMembers"], AllArtists.Members[j])
-	}
-
-	for i := 0; i < len(AllLocations.Location); i++ {
-		dataMap["artistLocations"] = append(dataMap["artistLocations"], AllLocations.Location[i])
-		dataMap["artistDates"] = append(dataMap["artistDates"], AllDates.Dates[i])
-	}
-	
-	fmt.Println(dataMap)
-	fmt.Println("---------------------------------------------------------")
-	executeErr := temp.Execute(w, dataMap)
+	AllRelations := FetchRelations(artistId)
+	AllRelations["artists"] = AllArtists
+	executeErr := temp.Execute(w, AllRelations)
 	if executeErr != nil {
 		fmt.Println("Template error: ", executeErr)
+		w.Header().Set("Content-Type", "text/html")
+		io.WriteString(w, "Internal Server Template error on *Location Template* \nError Code: "+strconv.Itoa(http.StatusInternalServerError))
+		_ = temp.Execute(w, nil)
+		return
 	}
 }

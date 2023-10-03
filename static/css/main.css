@@ -43,18 +43,17 @@
   transition: 1s;
   border: 2px solid transparent;
 }
-@media (max-width: 550px) {
+@media (max-width: 800px) {
   .container_menu a {
     border-radius: 0.5rem;
     margin: 0.3rem;
-    width: 100%;
     text-align: center;
   }
 }
 .container_menu a:hover {
   border: 2px solid red;
 }
-@media (max-width: 550px) {
+@media (max-width: 800px) {
   .container_menu {
     display: flex;
     flex-direction: column;
@@ -69,7 +68,6 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: auto;
 }
 .container_content_artist {
   margin: 0.4rem;
@@ -144,18 +142,12 @@
   border-radius: 0 0 0.5rem 0.5rem;
   box-shadow: rgba(39, 0, 93, 0.616) 0px 7px 29px 0px;
 }
-.container_content_locations {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 .container_content_members-concerts {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
+  margin-top: 5rem;
 }
 .container_content_members-concerts_members {
   display: flex;
@@ -165,7 +157,6 @@
   box-shadow: rgba(39, 0, 93, 0.616) 0px 7px 29px 0px;
   border-radius: 0.5rem;
   width: 15rem;
-  height: 26rem;
   margin: 0.5rem;
   padding-bottom: 2rem;
 }
@@ -199,7 +190,6 @@
   box-shadow: rgba(39, 0, 93, 0.616) 0px 7px 29px 0px;
   border-radius: 0.5rem;
   width: 37.5rem;
-  height: 26rem;
   margin: 0.5rem;
   padding-bottom: 2rem;
 }
@@ -215,25 +205,45 @@
   background: rgb(39, 0, 93);
   color: rgb(228, 241, 255);
 }
+@media (max-width: 600px) {
+  .container_content_members-concerts_locations p {
+    font-size: 1rem;
+  }
+}
 .container_content_members-concerts_locations span {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
-  border-bottom: 1px solid rgba(15, 77, 92, 0.801);
   text-align: center;
   letter-spacing: 0.1rem;
   padding: 0.1rem;
   width: 80%;
 }
-.container_content_members-concerts_locations_data {
+@media (max-width: 600px) {
+  .container_content_members-concerts_locations span {
+    font-size: 0.9rem;
+    letter-spacing: 0;
+    width: 100%;
+    padding: 0;
+  }
+}
+.container_content_members-concerts_locations_column {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+.container_content_members-concerts_locations_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   margin-bottom: auto;
+  border-bottom: 1px solid rgba(15, 77, 92, 0.801);
 }
 .container_content_members-concerts_locations_title {
   display: flex;
@@ -252,6 +262,25 @@
 .container_content_members-concerts_locations_title :nth-child(3) {
   border-radius: 0 0.5rem 0 0;
 }
+@media (max-width: 600px) {
+  .container_content_members-concerts_locations {
+    width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .container_content_members-concerts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.container_content_welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .container_back {
   display: flex;
   flex-direction: column;
@@ -262,6 +291,7 @@
   border-radius: 0.5rem;
   font-size: 1.5rem;
   margin-bottom: auto;
+  margin-top: 2rem;
   background: rgb(39, 0, 93);
   transition: 1s;
   overflow: hidden;
@@ -275,11 +305,38 @@
   box-shadow: rgba(39, 0, 93, 0.616) 0px 7px 29px 0px;
   border: 2px solid red;
 }
-
-.hidden {
-  display: none;
+.container_footer {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-
-.show {
-  display: inline-block;
+.container_footer a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  margin: 0 0.4rem;
+  box-shadow: rgba(39, 0, 93, 0.616) 0px 7px 29px 0px;
+  border-radius: 0.5rem 0.5rem 0 0;
+  width: 15rem;
+  height: 3rem;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  color: rgb(15, 77, 92);
+  transition: 1s;
+  border: 2px solid transparent;
+}
+@media (max-width: 800px) {
+  .container_footer a {
+    border-radius: 0.5rem;
+    margin: 0.3rem;
+    text-align: center;
+  }
+}
+.container_footer a:hover {
+  border: 2px solid red;
 }/*# sourceMappingURL=main.css.map */

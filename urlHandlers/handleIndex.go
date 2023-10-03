@@ -18,11 +18,7 @@ func HandleIndex(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	dataStream := `Welcome to the site!
-	Press Artists Menu button hard to fetch some sweet api data and present it to you
-	in a bijutiful way!`
-
-	executeErr := template.Execute(w, dataStream)
+	executeErr := template.Execute(w, nil)
 	if executeErr != nil {
 		fmt.Println("Template error: ", executeErr)
 	}

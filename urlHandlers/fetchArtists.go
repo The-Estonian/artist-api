@@ -38,8 +38,8 @@ func FetchAllArtists() []Artists {
 }
 
 //fetch single artist and return as struct
-func FetchSingleArtist(artistId string) Artists {
-	var AllArtists Artists
+func FetchSingleArtist(artistId string) map[string]interface{} {
+	AllArtists := map[string]interface{}{}
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/artists/" + artistId)
 	if err != nil {
 		fmt.Print("API Connection failed!", err.Error())

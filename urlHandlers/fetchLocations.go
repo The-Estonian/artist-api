@@ -7,16 +7,9 @@ import (
 	"net/http"
 )
 
-//Locations api struct DO NOT MODIFY!
-type Locations struct {
-	Id       int      `json:"id"`
-	Location []string `json:"locations"`
-	Dates    string   `json:"dates"`
-}
-
 //fetch single artist locations and return as struct
-func FetchLocations(artistId string) Locations {
-	var AllLocations Locations
+func FetchLocations(artistId string) map[string]interface{} {
+	AllLocations := map[string]interface{}{}
 	response, err := http.Get("https://groupietrackers.herokuapp.com/api/locations/" + artistId)
 	if err != nil {
 		fmt.Print("API Connection failed!", err.Error())
