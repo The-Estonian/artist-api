@@ -26,7 +26,7 @@ http://localhost
 ## DNS
 Website is hosted on AWS as a docker container under a subdomain.
 
-You can view it [HERE](groupie-tracker.the-estonian.com/)
+You can view it [HERE](http://groupie-tracker.the-estonian.com/)
 
 
 Author: [Jaanus Saar](https://01.kood.tech/git/jsaar)
