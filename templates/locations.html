@@ -8,6 +8,12 @@
   </head>
   <body>
     <div class="container">
+      <div class="container_menu">
+        <a href="/"><span>Home</span></a>
+        <a href="/artists"><span>Artists</span></a>
+        <a href="http://www.the-estonian.com"><span>Main Domain</span></a>
+      </div>
+      <div class="container_location_title">{{.artists.name}}</div>
       <div class="container_content">
         <div class="container_content_members-concerts">
           <div class="container_content_members-concerts_members">
@@ -41,7 +47,7 @@
           </div>
         </div>
       </div>
-      <div class="container_back"><a href="/artists">Back</a></div>
+      <div class="container_back" onclick="history.back()">Back</div>
       <div class="container_footer">
         <a href="https://github.com/The-Estonian">Git</a>
         <a href="https://www.linkedin.com/in/jaanus-s-3897a721b/">LinkedIn</a>

@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
 
-$cardHeight: 26rem;
+$cardHeight: 28rem;
 $cardWidth: 15rem;
-$shading: rgba(39, 0, 93, 0.616);
-$textColor: rgba(15, 77, 92, 1);
+$shading: rgba(53, 8, 117, 0.5);
+$textColor: #006868;
+$labelBackground: #4e4e4e;
+$backgroundCol1:rgba(177, 177, 177, 0.5);
+$backgroundCol2: rgba(156, 156, 156, 0.699);
+$borderColor1: rgb(0, 0, 0);
+$titleLine: rgba(0, 0, 0, 0.801);
 
 @mixin flexRow {
   display: flex;
@@ -31,9 +36,10 @@ $textColor: rgba(15, 77, 92, 1);
   height: 100vh;
   background: linear-gradient(
     38deg,
-    rgb(174, 210, 255),
-    rgb(228, 241, 255),
-    rgb(174, 210, 255)
+    $backgroundCol1,
+    $backgroundCol2,
+    $backgroundCol1,
+    $backgroundCol2,
   );
   overflow-y: scroll;
   overflow-x: hidden;
@@ -57,8 +63,9 @@ $textColor: rgba(15, 77, 92, 1);
       border: 2px solid transparent;
       @media (max-width: 800px) {
         border-radius: 0.5rem;
-        margin: 0.3rem;
+        margin: 0.1rem;
         text-align: center;
+        height: 2rem;
       }
       &:hover {
         border: 2px solid red;
@@ -77,14 +84,12 @@ $textColor: rgba(15, 77, 92, 1);
       @include flexCol;
       justify-content: flex-start;
       box-shadow: $shading 0px 7px 29px 0px;
-      border-radius: 0.5rem;
       width: $cardWidth;
       height: $cardHeight;
       transition: 1s;
       &_image {
         height: $cardWidth;
         width: $cardWidth;
-        border-radius: 0.5rem 0.5rem 0 0;
         box-shadow: $shading 0px 7px 29px 0px;
         position: relative;
         transition: 1s;
@@ -94,8 +99,9 @@ $textColor: rgba(15, 77, 92, 1);
         font-size: 1.4rem;
         width: 80%;
         text-align: center;
-        border-bottom: 2px solid rgba(15, 77, 92, 0.801);
-        margin-bottom: 0.4rem;
+        padding:0.5rem 0;
+        border-bottom: 2px solid $titleLine;
+        margin-bottom: 0.5rem;
         z-index: 10;
       }
       &_members,
@@ -111,7 +117,7 @@ $textColor: rgba(15, 77, 92, 1);
           transition: 1s;
           border-radius: 0 0.4rem 0 0.4rem;
           user-select: none;
-          border: 2px solid rgb(174, 210, 255);
+          border: 2px solid $borderColor1;
           &:hover {
             box-shadow: $shading 0px 7px 29px 0px;
             border: 2px solid red;
@@ -127,17 +133,16 @@ $textColor: rgba(15, 77, 92, 1);
         font-size: 0.9rem;
         text-align: center;
         padding: 0.1rem;
-        background: rgb(39, 0, 93);
+        background: $labelBackground;
         color: rgb(228, 241, 255);
         margin-top: auto;
         width: 100%;
-        border-radius: 0 0 0.5rem 0.5rem;
         box-shadow: $shading 0px 7px 29px 0px;
       }
     }
     &_members-concerts {
-      @include flexRow;
-      margin-top: 5rem;
+      display: flex;
+      margin-top: 3%;
       &_members {
         @include flexCol;
         box-shadow: $shading 0px 7px 29px 0px;
@@ -152,7 +157,7 @@ $textColor: rgba(15, 77, 92, 1);
           border-radius: 0.5rem 0.5rem 0 0;
           font-size: 1.5rem;
           margin-bottom: auto;
-          background: rgb(39, 0, 93);
+          background: $labelBackground;
           color: rgb(228, 241, 255);
         }
         &_each-member {
@@ -178,7 +183,7 @@ $textColor: rgba(15, 77, 92, 1);
           height: 5rem;
           border-radius: 0.5rem 0.5rem 0 0;
           font-size: 1.5rem;
-          background: rgb(39, 0, 93);
+          background: $labelBackground;
           color: rgb(228, 241, 255);
           @media (max-width: 600px) {
             font-size: 1rem;
@@ -241,13 +246,16 @@ $textColor: rgba(15, 77, 92, 1);
     border-radius: 0.5rem;
     font-size: 1.5rem;
     margin-bottom: auto;
-    margin-top: 2rem;
-    background: rgb(39, 0, 93);
+    margin-top: 1rem;
+    background: $labelBackground;
     transition: 1s;
-    overflow: hidden;
+    box-shadow: $shading 0px 7px 29px 0px;
+    color: rgb(228, 241, 255);
+    border: 2px solid transparent;
+    cursor: pointer;
     a {
       text-decoration: none;
-      color: rgb(228, 241, 255);
+      
       padding: 2rem 6rem;
     }
     &:hover {
@@ -263,7 +271,7 @@ $textColor: rgba(15, 77, 92, 1);
       font-size: 1.1rem;
       margin: 0 0.4rem;
       box-shadow: $shading 0px 7px 29px 0px;
-      border-radius:0.5rem 0.5rem 0 0;
+      border-radius: 0.5rem 0.5rem 0 0;
       width: $cardWidth;
       height: 3rem;
       cursor: pointer;
@@ -274,13 +282,28 @@ $textColor: rgba(15, 77, 92, 1);
       border: 2px solid transparent;
       @media (max-width: 800px) {
         border-radius: 0.5rem;
-        margin: 0.3rem;
+        margin: 0.1rem;
         text-align: center;
+        height: 2rem;
       }
       &:hover {
         border: 2px solid red;
       }
     }
-    
+    @media (max-width: 800px) {
+      @include flexCol;
+    }
+  }
+  &_location_title {
+    @include flexCol;
+    letter-spacing: 0.2rem;
+    padding:0.8rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    background: $labelBackground;
+    color: rgb(228, 241, 255);
+    box-shadow: $shading 0px 7px 29px 0px;
   }
 }
+
